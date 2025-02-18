@@ -4,7 +4,7 @@
 
 ```
 FUNCIÓN numeroDeDigitos(n)
-    SI n = 0 ENTONCES
+    SI n < 10 ENTONCES
         RETORNAR 1
     FIN SI
 
