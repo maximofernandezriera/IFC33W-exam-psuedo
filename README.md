@@ -43,3 +43,37 @@ public class EdificiosVistaAlOeste {
 }
 
 ```
+
+### 3
+
+```
+FUNCIÓN generarSubsecuencias(cadena)
+    resultado = CrearListaVacia()                 // Lista para almacenar las subsecuencias
+    generarSubsecuenciasRecursivo(cadena, "", resultado)  // Llamada al método recursivo
+    RETORNAR resultado                             // Devolver la lista con todas las subsecuencias
+FIN FUNCIÓN
+
+FUNCIÓN generarSubsecuenciasRecursivo(cadena, subsecuenciaActual, resultado)
+    SI longitud(cadena) = 0 ENTONCES
+        Añadir subsecuenciaActual A resultado     // Añadir la subsecuencia actual a la lista
+        RETORNAR
+    FIN SI
+
+    // Incluir el primer carácter de la cadena en la subsecuencia actual
+    generarSubsecuenciasRecursivo(subcadena(cadena, 1, longitud(cadena)), subsecuenciaActual + cadena[0], resultado)
+
+    // Excluir el primer carácter de la cadena en la subsecuencia actual
+    generarSubsecuenciasRecursivo(subcadena(cadena, 1, longitud(cadena)), subsecuenciaActual, resultado)
+FIN FUNCIÓN
+
+FUNCIÓN principal()
+    cadena1 = "xyz"
+    cadena2 = "xy"
+    cadena3 = "a"
+
+    IMPRIMIR generarSubsecuencias(cadena1)  // Salida: [xyz, xz, xy, x, yz, y, z, ""]
+    IMPRIMIR generarSubsecuencias(cadena2)  // Salida: [xy, x, y, ""]
+    IMPRIMIR generarSubsecuencias(cadena3)  // Salida: [a, ""]
+FIN FUNCIÓN
+
+```
