@@ -44,7 +44,7 @@ public class EdificiosVistaAlOeste {
 
 ```
 
-### 3
+### 5
 
 ```
 FUNCIÓN generarSubsecuencias(cadena)
