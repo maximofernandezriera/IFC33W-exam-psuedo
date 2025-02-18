@@ -66,6 +66,10 @@ FUNCIÓN generarSubsecuenciasRecursivo(cadena, subsecuenciaActual, resultado)
     generarSubsecuenciasRecursivo(subcadena(cadena, 1, longitud(cadena)), subsecuenciaActual, resultado)
 FIN FUNCIÓN
 
+```
+
+```
+
 FUNCIÓN principal()
     cadena1 = "xyz"
     cadena2 = "xy"
