@@ -71,9 +71,58 @@ FUNCIÓN principal()
     cadena2 = "xy"
     cadena3 = "a"
 
-    IMPRIMIR generarSubsecuencias(cadena1)  // Salida: [xyz, xz, xy, x, yz, y, z, ""]
-    IMPRIMIR generarSubsecuencias(cadena2)  // Salida: [xy, x, y, ""]
-    IMPRIMIR generarSubsecuencias(cadena3)  // Salida: [a, ""]
-FIN FUNCIÓN
+### 4
+
+´´´
+import java.util.HashMap;
+import java.util.Map;
+
+public class MinimoBebidas {
+
+    public static int minimoBebidas(Map<Integer, int[]> preferencias) {
+        HashMap<Integer, Integer> contadorBebidas = new HashMap<>();
+
+        // Contar la frecuencia de cada bebida en las preferencias de los clientes
+        for (int cliente : preferencias.keySet()) {
+            int[] bebidasPreferidas = preferencias.get(cliente);
+            for (int bebida : bebidasPreferidas) {
+                contadorBebidas.put(bebida, contadorBebidas.getOrDefault(bebida, 0) + 1);
+            }
+        }
+
+        // Encontrar el número mínimo de bebidas necesarias
+        int minBebidas = 0;
+        while (!contadorBebidas.isEmpty()) {
+            int bebidaMasFrecuente = -1;
+            int maxFrecuencia = 0;
+
+            // Encontrar la bebida más frecuente
+            for (Map.Entry<Integer, Integer> entry : contadorBebidas.entrySet()) {
+                if (entry.getValue() > maxFrecuencia) {
+                    bebidaMasFrecuente = entry.getKey();
+                    maxFrecuencia = entry.getValue();
+                }
+            }
+
+            // Reducir la frecuencia de la bebida más frecuente
+            contadorBebidas.remove(bebidaMasFrecuente);
+            minBebidas++;
+        }
+
+        return minBebidas;
+    }
+
+    public static void main(String[] args) {
+        Map<Integer, int[]> preferencias = new HashMap<>();
+        preferencias.put(0, new int[]{0, 1, 3, 6});
+        preferencias.put(1, new int[]{1, 4, 7});
+        preferencias.put(2, new int[]{2, 4, 7, 5});
+        preferencias.put(3, new int[]{3, 2, 5});
+        preferencias.put(4, new int[]{5, 8});
+
+        System.out.println(minimoBebidas(preferencias));
+    }
+}
+
 
 ```
