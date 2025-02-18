@@ -70,6 +70,7 @@ FUNCIÓN principal()
     cadena1 = "xyz"
     cadena2 = "xy"
     cadena3 = "a"
+```
 
 ### 4
 
@@ -82,7 +83,7 @@ public class MinimoBebidas {
     public static int minimoBebidas(Map<Integer, int[]> preferencias) {
         HashMap<Integer, Integer> contadorBebidas = new HashMap<>();
 
-        // Contar la frecuencia de cada bebida en las preferencias de los clientes
+        // Contamos la frecuencia de cada bebida en las preferencias de los clientes
         for (int cliente : preferencias.keySet()) {
             int[] bebidasPreferidas = preferencias.get(cliente);
             for (int bebida : bebidasPreferidas) {
@@ -90,13 +91,13 @@ public class MinimoBebidas {
             }
         }
 
-        // Encontrar el número mínimo de bebidas necesarias
+        // Encontramos el número mínimo de bebidas necesarias
         int minBebidas = 0;
         while (!contadorBebidas.isEmpty()) {
             int bebidaMasFrecuente = -1;
             int maxFrecuencia = 0;
 
-            // Encontrar la bebida más frecuente
+            // Encontramos la bebida más frecuente
             for (Map.Entry<Integer, Integer> entry : contadorBebidas.entrySet()) {
                 if (entry.getValue() > maxFrecuencia) {
                     bebidaMasFrecuente = entry.getKey();
@@ -104,7 +105,7 @@ public class MinimoBebidas {
                 }
             }
 
-            // Reducir la frecuencia de la bebida más frecuente
+            // Revisamos la frecuencia de la bebida más frecuente
             contadorBebidas.remove(bebidaMasFrecuente);
             minBebidas++;
         }
